@@ -2,11 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppMinhasCompras.Views.ListaProduto"
-             Title="ListaProduto">
+             Title="Minhas Compras">
+
+  
+
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    Text="Bem-vindo ao Minhas Compras!"
+    FontSize="24"
+    FontAttributes="Bold"
+    TextColor="White"
+    HorizontalOptions="Center"
+    VerticalOptions="Center"
+    HorizontalTextAlignment="Center"/>
+
+        <HorizontalStackLayout 
+        HorizontalOptions="Center"
+        Spacing="20">
+
+            <Button Text="Somar"/>
+            <Button Text="Adicionar" Clicked="Adicionar_Clicked"/>
+
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
