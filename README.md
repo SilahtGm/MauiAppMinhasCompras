@@ -15,25 +15,6 @@ O aplicativo é ideal para controle de estoque, lista de compras ou pequenos neg
 
 ---
 
-## Estrutura do Projeto
-MauiAppMinhasCompras/
-│
-├─ Models/
-│ └─ Produto.cs # Classe de definição da tabela Produto
-│
-├─ Views/
-│ ├─ ListaProduto.xaml # Tela principal com lista de produtos
-│ ├─ NovoProduto.xaml # Tela para adicionar novos produtos
-│ └─ EditarProduto.xaml # Tela para editar produtos existentes
-│
-├─ Helpers/
-│ └─ DbHelper.cs # Métodos auxiliares para CRUD e consultas no SQLite
-│
-├─ App.xaml
-└─ App.xaml.cs
-
-
----
 
 ## Funcionalidades
 
