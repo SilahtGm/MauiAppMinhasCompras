@@ -87,8 +87,7 @@ A camada de persistência utiliza SQLite para gerenciar os dados localmente:
 
 1. **Clonar o projeto**
    ```bash
-   git clone [https://github.com/seu-usuario/minhas-compras.git](https://github.com/seu-usuario/minhas-compras.git)
-   cd minhas-compras
+   git clone https://github.com/SilahtGm/MauiAppMinhasCompras.git
 ---
 
 ## Banco de Dados SQLite
