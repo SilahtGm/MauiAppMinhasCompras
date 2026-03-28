@@ -109,4 +109,53 @@ public partial class ListaProduto : ContentPage
             DisplayAlert("Ops", ex.Message, "OK");
         }
     }
+
+    private async void picker_filtro_clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            if (picker_filtro.SelectedItem == null)
+                return;
+
+            var categoria = picker_filtro.SelectedItem.ToString();
+
+            lista.Clear();
+
+            List<Produto> tmp;
+
+            if (categoria == "Todos")
+            {
+                tmp = await App.Db.GetAll();
+            }
+            else
+            {
+                tmp = await App.Db.GetByCategoria(categoria);
+            }
+
+            tmp.ForEach(i => lista.Add(i));
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Ops", ex.Message, "OK");
+        }
+    }
+
+    private async void Total_categoria_Clicked(object sender, EventArgs e)
+    {
+        var alimentos = await App.Db.GetByCategoria("Alimentos");
+        var higiene = await App.Db.GetByCategoria("Higiene");
+        var lazer = await App.Db.GetByCategoria("Lazer");
+        var limpeza = await App.Db.GetByCategoria("Limpeza");
+        var farmacia = await App.Db.GetByCategoria("Farmácia");
+
+        string msg =
+            $"Alimentos: {alimentos.Sum(p => p.Total):C}\n" +
+            $"Higiene: {higiene.Sum(p => p.Total):C}\n" +
+            $"Lazer: {lazer.Sum(p => p.Total):C}\n" +
+            $"Limpeza: {limpeza.Sum(p => p.Total):C}\n" +
+            $"Farmácia: {farmacia.Sum(p => p.Total):C}";
+
+        await DisplayAlert("Relatório", msg, "OK");
+    }
+
 }

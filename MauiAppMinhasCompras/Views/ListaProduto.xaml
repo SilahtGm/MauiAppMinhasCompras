@@ -2,19 +2,38 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppMinhasCompras.Views.ListaProduto"
-             Title="Minhas Compras">
+             Title="Minhas Compras"
+             BackgroundColor="#121212">
 
-    <VerticalStackLayout Padding="20" Spacing="10">
-        
-  <HorizontalStackLayout 
-            HorizontalOptions="Center"
-            Spacing="20">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+        Text="Adicionar"
+        Clicked="ToolbarItem_Clicked"
+        />
 
-            <Button Text="Somar" Clicked="ToolbarItem_Clicked_1"/>
-            <Button Text="Adicionar" Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem 
+        Text="Total"
+        Clicked="ToolbarItem_Clicked_1"
+        />
+    </ContentPage.ToolbarItems>
 
-        </HorizontalStackLayout>
-        
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+            <VerticalStackLayout Spacing="10">
+
+           
+
+            <Button 
+        Text="Total por Categoria"
+        BackgroundColor="#FF9800"
+        TextColor="White"
+        CornerRadius="10"
+        HorizontalOptions="FillAndExpand"
+        Clicked="Total_categoria_Clicked"/>
+
+        </VerticalStackLayout>
+
         <Label 
             Text="Bem-vindo ao Minhas Compras!"
             FontSize="24"
@@ -26,15 +45,27 @@
                    Placeholder="Busca de Produtos"
                    TextChanged="txt_search_TextChanged"/>
 
+        <Picker x:Name="picker_filtro" Title="Filtrar por categoria"  SelectedIndexChanged="picker_filtro_clicked">
+            <Picker.Items>
+                <x:String>Todos</x:String>
+                <x:String>Alimentos</x:String>
+                <x:String>Higiene</x:String>
+                <x:String>Lazer</x:String>
+                <x:String>Limpeza</x:String>
+                <x:String>Farmácia</x:String>
+            </Picker.Items>
+        </Picker>
+
         <ListView x:Name="lst_produtos" ItemSelected="lst_produtos_ItemSelected">
 
             <ListView.Header>
-                <Grid ColumnDefinitions="*, *, *, *, *">
+                <Grid ColumnDefinitions="*, *, *, *, *, *">
                     <Label Grid.Column="0" Text="ID" FontAttributes="Bold"/>
                     <Label Grid.Column="1" Text="Descrição" FontAttributes="Bold"/>
-                    <Label Grid.Column="2" Text="Preço" FontAttributes="Bold"/>
-                    <Label Grid.Column="3" Text="Qnt" FontAttributes="Bold"/>
-                    <Label Grid.Column="4" Text="Total" FontAttributes="Bold"/>
+                    <Label Grid.Column="2" Text="Categoria" FontAttributes="Bold"/>
+                    <Label Grid.Column="3" Text="Preço" FontAttributes="Bold"/>
+                    <Label Grid.Column="4" Text="Qnt" FontAttributes="Bold"/>
+                    <Label Grid.Column="5" Text="Total" FontAttributes="Bold"/>
                 </Grid>
             </ListView.Header>
 
@@ -46,12 +77,13 @@
                             <MenuItem Text="Remover" Clicked="MenuItem_Clicked"/>
                         </ViewCell.ContextActions>
 
-                        <Grid ColumnDefinitions="*, *, *, *, *">
+                        <Grid ColumnDefinitions="*, *, *, *, *, *">
                             <Label Grid.Column="0" Text="{Binding Id}"/>
                             <Label Grid.Column="1" Text="{Binding Descricao}"/>
-                            <Label Grid.Column="2" Text="{Binding Preco}"/>
-                            <Label Grid.Column="3" Text="{Binding Quantidade}"/>
-                            <Label Grid.Column="4" Text="{Binding Total}"/>
+                            <Label Grid.Column="2" Text="{Binding Categoria}"/>
+                            <Label Grid.Column="3" Text="{Binding Preco}"/>
+                            <Label Grid.Column="4" Text="{Binding Quantidade}"/>
+                            <Label Grid.Column="5" Text="{Binding Total}"/>
                         </Grid>
 
                     </ViewCell>
@@ -60,8 +92,9 @@
 
         </ListView>
 
-      
 
-    </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>
