@@ -58,31 +58,6 @@ O aplicativo oferece as seguintes funcionalidades:
 - Exibe resultados em `DisplayAlert` para visualização rápida.
 
 ---
-
-## Banco de Dados SQLite
-
-O projeto utiliza SQLite para armazenamento local.  
-
-Exemplo da classe `Produto.cs`:
-
-```csharp
-public class Produto
-{
-    [PrimaryKey, AutoIncrement]
-    public int Id { get; set; }
-
-    public string Descricao { get; set; }
-
-    public string Categoria { get; set; }
-
-    public double Preco { get; set; }
-
-    public int Quantidade { get; set; }
-
-    [Ignore]
-    public double Total => Preco * Quantidade;
-}
-
 # 🛒 MauiAppMinhasCompras
 
 Uma aplicação moderna desenvolvida em **.NET MAUI** para gerenciamento de listas de compras, permitindo o controle total de produtos, categorias e valores diretamente no seu dispositivo.
@@ -133,3 +108,30 @@ A camada de persistência utiliza SQLite para gerenciar os dados localmente:
    ```bash
    git clone [https://github.com/seu-usuario/minhas-compras.git](https://github.com/seu-usuario/minhas-compras.git)
    cd minhas-compras
+---
+
+## Banco de Dados SQLite
+
+O projeto utiliza SQLite para armazenamento local.  
+
+Exemplo da classe `Produto.cs`:
+
+```csharp
+public class Produto
+{
+    [PrimaryKey, AutoIncrement]
+    public int Id { get; set; }
+
+    public string Descricao { get; set; }
+
+    public string Categoria { get; set; }
+
+    public double Preco { get; set; }
+
+    public int Quantidade { get; set; }
+
+    [Ignore]
+    public double Total => Preco * Quantidade;
+}
+
+
