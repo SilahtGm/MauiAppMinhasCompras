@@ -88,6 +88,15 @@ A camada de persistência utiliza SQLite para gerenciar os dados localmente:
 1. **Clonar o projeto**
    ```bash
    git clone https://github.com/SilahtGm/MauiAppMinhasCompras.git
+   
+2.  **Abrir no Visual Studio**
+  
+Abrir a solução .sln no Visual Studio.
+Restaurar pacotes NuGet. 
+
+3. **Executar**
+Selecionar plataforma (Android/iOS/Windows).
+Build e run (F5 ou Ctrl+F5).
 ---
 
 ## Banco de Dados SQLite
